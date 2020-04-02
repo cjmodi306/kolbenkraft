@@ -1,0 +1,23 @@
+from gpiozero import MotionSensor
+from picamera import PiCamera
+from time import sleep
+import RPi.GPIO as GPIO
+
+sensor = MotionSensor(4)
+cam = PiCamera()
+
+try:
+    while True:
+        if sensor.motion_detected:
+            cam.start_preview()
+            sleep(0.1)
+            print("True")
+            cam.capture("Thief.png")
+            cam.stop_preview()
+            
+        else:
+            print("False")
+            sleep(2)
+
+except KeyboardInterrupt:
+    GPIO.cleanup()
