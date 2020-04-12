@@ -1,0 +1,17 @@
+from gpiozero import DistanceSensor, Buzzer
+from time import sleep
+
+sensor = DistanceSensor(trigger = 17, echo = 27)
+buzzer = Buzzer(4)
+
+while True:
+    distance = sensor.distance*100
+    print("Distance: {} cm".format(distance))
+    
+    if distance < 5:
+        buzzer.on()
+    a
+    else:
+        buzzer.off()
+        
+    sleep(0.5)
