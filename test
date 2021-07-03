@@ -1,0 +1,40 @@
+Direction of Driving
+
+BREMSE: BYTE1, DRIVE_MODUS: BYTE3
+
+  slcan0  118   [6]  FF 1F F4 11 81 BB
+ Park modus, bremse nicht an, stehen
+ 
+   slcan0  118   [6]  FF 9F F4 11 81 BB
+ Park modus, bremse an, stehen
+ 
+ Bremse muss an,um in Drive modus zu wechseln
+ 
+   slcan0  118   [6]  FF CF F4 41 9D B7
+Bremse ist an. Drive modus, stehen
+
+  slcan0  118   [6]  FF CF F4 41 9E B8
+Bremse an, drive modus, stehen
+
+slcan0  118   [6]  1F 40 23 42 89 64
+keine bremse, drive modus, fahren, gas pedal betätigt
+
+slcan0  118   [6]  1F 4F 23 42 89 64
+keine bremse, drive modus, fahren, gas pedal losgelassen
+
+ slcan0  118   [6]  FF AF F4 21 94 6E
+Bremse ist an, Rückwärts modus, stehen
+
+ slcan0  118   [6]  FF 2F F4 21 8A E4
+Ohne bremse, rückwärts modus, stehen
+
+ slcan0  118   [6]  DC 2F CB 21 8A 98
+ ohne bremse, rückwärts modus, rollen lassen (gas pedal nicht betätigt)
+ 
+ slcan0  118   [6]  BE 2F C2 21 85 6C
+ohne bremse, rückwärts,gas pedal betätigt
+
+
+[Während der AP-Funktion, kommt Anzeige, Lenkrad leicht zu drehen. Wenn nicht gedreht, startet Warntone. Wenn immernoch nicht zugegriffen, Auto bremst, Warmlicht and Warntone an.]
+
+[0x488: AA AA 83 AA]- wieso '8'? vielleicht, versucht AP anzumachen allerdings ging nicht
